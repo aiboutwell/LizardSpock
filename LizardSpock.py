@@ -12,8 +12,11 @@
 # Paper disproves Spock
 # Spock vaporizes Rock
 # (and as it always has) Rock crushes Scissors
-
+#
+# Import random number function to generate a random number.
 import random
+# Import os to clear the screen
+import os
 
 optionslist = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
 
@@ -108,6 +111,8 @@ def compare_guess(user_guess,computer_guess,user_score,computer_score,tie_score)
 
 def game_play():
     # Main structure of the game.
+    # clear the screen and run the game
+    os.system("cls")
     user_score = 0
     computer_score = 0
     tie_score = 0
@@ -134,13 +139,16 @@ print("\nWelcome to Rock, Paper, Scissors, Lizard, Spock.\n")
 print("There are 5 rounds with additional rounds, if there is a tie.")
 print("Type the number that corresponds to your choice.  Good luck. \n")
 
+# Call game_play for the first run
+game_play()
 # rerun the game until the user chooses to quit.
-again="Y"
-while (again.upper() == "Y"):
-    game_play()
-    try:
-        again = input("\n Would you like to play again? (Y/N): ")
-    except ValueError:
-        if again.upper() != "Y":
-            print("\n ERROR: Your choice was invalid.")
-
+while True:
+    again = str(input("\nWould you like to play again? (Y/N): ").upper().strip())
+    if again == "Y":
+        game_play()
+        continue
+    elif again == "N":
+        print("Good Bye.")
+        break
+    else:
+        print("\nPlease enter either Y or N")
