@@ -26,7 +26,7 @@ def random_guess():
     return optionslist[x]
 
 def user_input():
-    # Ask the user for a guess.  Invalid input will display and error and ask for another guess.
+    # Ask the user for a guess.  Invalid input will display an error and ask for another guess.
     # If the user has already had 5 guesses excluding ties then no more questions.
     x=9
     while(x < 0 or x >4):
@@ -39,7 +39,7 @@ def user_input():
     return optionslist[x]
 
 def compare_guess(user_guess,computer_guess,user_score,computer_score,tie_score):
-    # Based on the number chosen by the user, compare the guess to the input randomly chosen by the computer
+    # Based on the number chosen by the user, compare the guess to the option randomly chosen by the computer
     if user_guess == computer_guess:
         print(f"Tie: You both chose {computer_guess}.")
         tie_score += 1
